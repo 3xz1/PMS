@@ -20,6 +20,7 @@ Possible API Calls:
 - create a new set of username and password hash for a user.
 How its implemented:
 
+```mermaid
 sequenceDiagram
     participant Alice
     participant NGINX
@@ -34,6 +35,7 @@ sequenceDiagram
     MYSQL_DB->>NGINX: return success or duplicate entry
     NGINX->>Alice: Report status if user was created
 
+```
 
 2. http://"IP"/login
 - login a existing user with username and password
