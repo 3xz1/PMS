@@ -1,6 +1,5 @@
 PMS by Alexander Eger
 
-[[_TOC_]]
 
 ## Labor Software Security
 ## Password Management System by
