@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+ {% block profile%}
+ 	<a href="{{ url_for('auth.get_services')}}" class="navbar-item">
+    	Get your Passwords
+    </a>
+ 	<a href="{{ url_for('auth.new_service')}}" class="navbar-item">
+    	Save credentials for a Service 
+    </a> 
+ {% endblock %}
+{% block content %}
+<h1 class="title">
+  Welcome, {{name}}
+</h1>
+{% endblock %}

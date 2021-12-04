@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block profile%}
+    <a href="{{ url_for('auth.get_services')}}" class="navbar-item">
+        Get your Passwords
+    </a>
+    <a href="{{ url_for('auth.new_service')}}" class="navbar-item">
+        Save credentials for a Service
+    </a> 
+{% endblock %}
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Get Services and Passwords</h3>
+    <h4>Be aware this service can take some minutes to run.</h4>
+    <div class="box">
+        {% with messages = get_flashed_messages(category_filter=['message']) %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {%with errors = get_flashed_messages(category_filter=['error'])%}
+            {% if errors %}
+                <div class="notification is-danger">
+                    {{ errors[0]}}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="/get_services">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="master_password" placeholder="Master Password" autofocus="">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Retrive Services</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

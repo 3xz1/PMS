@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+ {% block profile%}
+ 	<a href="{{ url_for('auth.get_services')}}" class="navbar-item">
+    	Get your Passwords
+    </a>
+ 	<a href="{{ url_for('auth.new_service')}}" class="navbar-item">
+    	Save credentials for a Service 
+    </a> 
+{% endblock %}
+{% block content %}
+<table style="width:60%">
+	<tr>
+		<th>Service</th>
+		<th>Username</th>
+		<th>Password</th>
+	</tr>
+	{% for service in services %}
+		<tr>
+			<th>{{service.service_name}}</th>
+			<th>{{service.username}}
+			<th>{{service.encrypted_pw}}</th>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

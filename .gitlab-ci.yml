@@ -1,0 +1,21 @@
+stages:
+- build
+docker-build:
+  # Official docker image.
+  image: docker:latest
+  stage: build
+  services:
+    - docker:18.09.7-dind
+  before_script:
+  - docker info
+  - apk add docker-compose curl
+  - pwd
+  - export
+  - ./setup.sh
+
+  script:
+    - docker-compose up --build -d
+    - sleep 60
+    - curl -X POST -F 'username=testUser' -F 'password=sOmEsEcUrE!1' -F 'password_check=sOmEsEcUrE!1' http://docker/signup
+    - curl -X POST -F 'username=testUser' -F 'password=sOmEsEcUrE!1' -F 'password_check=sOmEsEcUrE!1' http://docker/login
+    - docker exec flask python /flask/unitTests.py
