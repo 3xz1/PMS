@@ -1,9 +1,7 @@
-PMS by Alexander Eger
+PMS
 
 
 ## Labor Software Security
-## Password Management System by
-## Alexander Eger ENITS 1 email: aeger1@stud.hs-offenburg.de
 
 ## Frameworks and setup
 -Frameworks in use:
